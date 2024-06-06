@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+message Empty {}
+
+message Message {
+  string content = 1;
+  string sender_username = 2;
+}
+
+message User {
+  string username = 1;
+}
+
+service Chat {
+  rpc ConnectToChat(User) returns (ConnectionInfo) {}
+  rpc SendMessage(Message) returns (Empty) {}
+  rpc ReceiveMessage(Empty) returns (stream Message) {}
+}
+
+message ConnectionInfo {
+  string address = 1;
+  int32 port = 2;
+}
+
+service PrivateChat {
+  rpc ConnectToPeer(User) returns (ConnectionInfo) {}
+  rpc SendMessage(Message) returns (Empty) {}
+  rpc ReceiveMessage(Empty) returns (stream Message) {}
+}

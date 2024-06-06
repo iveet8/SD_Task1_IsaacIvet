@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package chat;
+
+message ChatConnectionRequest {
+  string username = 1;
+}
+
+message ChatConnectionResponse {
+  string ip = 1;
+  int32 port = 2;
+  string message = 3;
+}
+
+message ConnectToChatRequest {
+  string username = 1;
+  string chat_id = 2;
+}
+
+message ConnectToChatResponse {
+  string ip = 1;
+  int32 port = 2;
+  string message = 3;
+}
+
+message ClientInfo {
+  string ip = 1;
+  int32 port = 2;
+}
+
+message MessageRequest {
+  string message = 1;
+  string recipient_username = 2;
+}
+
+
+message MessageResponse {
+  string message = 1;
+}
+
+service ChatService {
+  rpc ConnectToChat(ChatConnectionRequest) returns (ChatConnectionResponse);
+  rpc ConnectToChatById(ConnectToChatRequest) returns (ConnectToChatResponse);
+  rpc GetClientInfo(ChatConnectionRequest) returns (ClientInfo);
+  rpc SendMessage(MessageRequest) returns (MessageResponse);
+  rpc ReceiveMessage(MessageRequest) returns (MessageResponse);
+}
+
+message Empty {}
+
