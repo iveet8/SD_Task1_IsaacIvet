@@ -34,13 +34,13 @@ Abans de començar hem de tenir aquests components instal·lats:
 
 ### 1. Instal·la dependències
 
-pip3 install grpcio grpcio-tools pika
+```pip3 install grpcio grpcio-tools pika```
 
 ### 2. Compila els Arxius Proto
 
 Abans de poder executar el servidor i el client, heu de generar els fitxers gRPC a partir de la definició del servei `chat.proto`. Executeu la següent comanda:
 
-`python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. chat.proto`
+python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. chat.proto
 
 ### 3. Executa el Servidor gRPC
 
