@@ -34,28 +34,34 @@ Abans de començar hem de tenir aquests components instal·lats:
 
 ### 1. Instal·la dependències
 
-```pip3 install grpcio grpcio-tools pika```
+```sh
+pip3 install grpcio grpcio-tools pika
+```
 
 ### 2. Compila els Arxius Proto
 
 Abans de poder executar el servidor i el client, heu de generar els fitxers gRPC a partir de la definició del servei `chat.proto`. Executeu la següent comanda:
 
+```sh
 python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. chat.proto
+```
 
 ### 3. Executa el Servidor gRPC
 
 Inicia el servidor gRPC per gestionar les connexions i els missatges dels usuaris.
 
+```sh
 python server.py
+```
 
 El servidor començarà a escoltar al port 50051.
 
 ### 4. Executa el Client gRPC
 
 Executa el client gRPC per començar a enviar i rebre missatges.
-
+```sh
 python client.py
-
+```
 Se us demanarà que introduïu el vostre nom d'usuari per iniciar sessió. Després, podeu seleccionar una de les opcions disponibles:
 
 1. Connectar-se a un xat privat
@@ -68,17 +74,12 @@ Se us demanarà que introduïu el vostre nom d'usuari per iniciar sessió. Despr
 
 #### Opcions del Client
 
-Connectar-se a un Xat Privat: Introduïu el nom d'usuari del destinatari al qual voleu enviar un missatge privat. Si l'usuari està disponible, es connectarà i podreu començar a enviar missatges privats.
-Subscriure’s i enviar missatge a un Xat Grupal: Introduïu l'ID del grup al qual voleu subscriure-vos. Un cop subscrits, podreu enviar i rebre missatges grupals.
-Descobrir Xats Actius: El client enviarà una sol·licitud per descobrir altres xats actius. Els resultats es mostraran en la terminal.
-Subscriure’s i enviar insult a Canal d’Insults: El client es connectarà a una cua de RabbitMQ per rebre insults. Els insults es distribueixen de manera que cada missatge arribi a un client diferent.
-Sortir: Finalitza l'execució del client i tanca la connexió amb el servidor.
+- **Connectar-se a un Xat Privat**: Introduïu el nom d'usuari del destinatari al qual voleu enviar un missatge privat. Si l'usuari està disponible, es connectarà i podreu començar a enviar missatges privats.
+- **Subscriure’s i enviar missatge a un Xat Grupal**: Introduïu l'ID del grup al qual voleu subscriure-vos. Un cop subscrits, podreu enviar i rebre missatges grupals.
+- **Descobrir Xats Actius**: El client enviarà una sol·licitud per descobrir altres xats actius. Els resultats es mostraran en la terminal.
+- **Subscriure’s i enviar insult a Canal d’Insults**: El client es connectarà a una cua de RabbitMQ per rebre insults. Els insults es distribueixen de manera que cada missatge arribi a un client diferent.
+- **Sortir**: Finalitza l'execució del client i tanca la connexió amb el servidor.
 
-## Generació dels Fitxers gRPC
-
-## Executar el Client
-
-Per executar el client, obriu un altre terminal i executeu:
 
 python3 client.py
 
