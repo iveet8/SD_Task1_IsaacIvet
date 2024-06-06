@@ -25,10 +25,10 @@ Aquest projecte és una aplicació de xat que permet la comunicació tant privad
 
 Abans de començar hem de tenir aquests components instal·lats:
 
-Python 3.6 o superior
-grpcio i grpcio-tools
-pika
-Un servidor RabbitMQ en execució
+- Python 3.6 o superior
+- `grpcio` i `grpcio-tools`
+- `pika`
+- Un servidor RabbitMQ en execució
 
 ## Passos per executar el projecte
 
@@ -40,7 +40,7 @@ pip3 install grpcio grpcio-tools pika
 
 Abans de poder executar el servidor i el client, heu de generar els fitxers gRPC a partir de la definició del servei `chat.proto`. Executeu la següent comanda:
 
-python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. chat.proto
+`python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. chat.proto`
 
 ### 3. Executa el Servidor gRPC
 
