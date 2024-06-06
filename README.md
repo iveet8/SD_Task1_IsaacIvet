@@ -26,11 +26,8 @@ Aquest projecte és una aplicació de xat que permet la comunicació tant privad
 Abans de començar hem de tenir aquests components instal·lats:
 
 Python 3.6 o superior
-
 grpcio i grpcio-tools
-
 pika
-
 Un servidor RabbitMQ en execució
 
 ## Passos per executar el projecte
